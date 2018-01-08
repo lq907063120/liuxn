@@ -17,7 +17,7 @@
         <module>liuxn-model</module>
         <!-- 数据持久层，操作低层数据库 -->
         <module>liuxn-persist</module>
-        <!-- 工具类，所有工具类都提取出来写在这个项目中。 -->
+        <!-- 工具类，所有工具类都提取出来写在这个项目中 -->
         <module>liuxn-utils</module>
     </modules>
 
