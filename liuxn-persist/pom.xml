@@ -13,6 +13,7 @@
     <name>com.liuxn.persist</name>
     <url>http://maven.apache.org</url>
 
+    <!-- 设置源文件编码 -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
