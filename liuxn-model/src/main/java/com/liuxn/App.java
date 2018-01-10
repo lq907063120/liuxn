@@ -1,4 +1,4 @@
-package root;
+package com.liuxn;
 
 /**
  * Hello world!

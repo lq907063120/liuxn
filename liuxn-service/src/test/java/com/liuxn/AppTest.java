@@ -1,4 +1,4 @@
-package root;
+package com.liuxn;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
