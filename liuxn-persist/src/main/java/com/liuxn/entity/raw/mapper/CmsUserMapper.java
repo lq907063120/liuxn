@@ -1,10 +1,14 @@
 package com.liuxn.entity.raw.mapper;
 
-import com.liuxn.manager.entity.CmsUser;
-import com.liuxn.manager.entity.CmsUserExample;
-import java.util.List;
-import org.apache.ibatis.annotations.Param;
 
+import com.liuxn.entity.raw.model.CmsUser;
+import com.liuxn.entity.raw.model.CmsUserExample;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
 public interface CmsUserMapper {
     int countByExample(CmsUserExample example);
 

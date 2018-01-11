@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.liuxn.entity.raw.mapper.CmsUserMapper" >
+  <resultMap id="BaseResultMap" type="com.liuxn.entity.raw.model.CmsUser" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="vcloginname" property="vcloginname" jdbcType="VARCHAR" />
+    <result column="vcloginpwd" property="vcloginpwd" jdbcType="VARCHAR" />
+    <result column="datcreate" property="datcreate" jdbcType="TIMESTAMP" />
+    <result column="datlasttime" property="datlasttime" jdbcType="TIMESTAMP" />
+    <result column="datupdate" property="datupdate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, vcloginname, vcloginpwd, datcreate, datlasttime, datupdate
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.liuxn.entity.raw.model.CmsUserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from cmsuser
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+    <include refid="MysqlDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from cmsuser
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from cmsuser
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.liuxn.entity.raw.model.CmsUserExample" >
+    delete from cmsuser
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.liuxn.entity.raw.model.CmsUser" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into cmsuser (vcloginname, vcloginpwd, datcreate, 
+      datlasttime, datupdate)
+    values (#{vcloginname,jdbcType=VARCHAR}, #{vcloginpwd,jdbcType=VARCHAR}, #{datcreate,jdbcType=TIMESTAMP}, 
+      #{datlasttime,jdbcType=TIMESTAMP}, #{datupdate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.liuxn.entity.raw.model.CmsUser" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into cmsuser
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="vcloginname != null" >
+        vcloginname,
+      </if>
+      <if test="vcloginpwd != null" >
+        vcloginpwd,
+      </if>
+      <if test="datcreate != null" >
+        datcreate,
+      </if>
+      <if test="datlasttime != null" >
+        datlasttime,
+      </if>
+      <if test="datupdate != null" >
+        datupdate,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="vcloginname != null" >
+        #{vcloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="vcloginpwd != null" >
+        #{vcloginpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="datcreate != null" >
+        #{datcreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="datlasttime != null" >
+        #{datlasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="datupdate != null" >
+        #{datupdate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.liuxn.entity.raw.model.CmsUserExample" resultType="java.lang.Integer" >
+    select count(*) from cmsuser
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update cmsuser
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.vcloginname != null" >
+        vcloginname = #{record.vcloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vcloginpwd != null" >
+        vcloginpwd = #{record.vcloginpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="record.datcreate != null" >
+        datcreate = #{record.datcreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.datlasttime != null" >
+        datlasttime = #{record.datlasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.datupdate != null" >
+        datupdate = #{record.datupdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update cmsuser
+    set id = #{record.id,jdbcType=INTEGER},
+      vcloginname = #{record.vcloginname,jdbcType=VARCHAR},
+      vcloginpwd = #{record.vcloginpwd,jdbcType=VARCHAR},
+      datcreate = #{record.datcreate,jdbcType=TIMESTAMP},
+      datlasttime = #{record.datlasttime,jdbcType=TIMESTAMP},
+      datupdate = #{record.datupdate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.liuxn.entity.raw.model.CmsUser" >
+    update cmsuser
+    <set >
+      <if test="vcloginname != null" >
+        vcloginname = #{vcloginname,jdbcType=VARCHAR},
+      </if>
+      <if test="vcloginpwd != null" >
+        vcloginpwd = #{vcloginpwd,jdbcType=VARCHAR},
+      </if>
+      <if test="datcreate != null" >
+        datcreate = #{datcreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="datlasttime != null" >
+        datlasttime = #{datlasttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="datupdate != null" >
+        datupdate = #{datupdate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.liuxn.entity.raw.model.CmsUser" >
+    update cmsuser
+    set vcloginname = #{vcloginname,jdbcType=VARCHAR},
+      vcloginpwd = #{vcloginpwd,jdbcType=VARCHAR},
+      datcreate = #{datcreate,jdbcType=TIMESTAMP},
+      datlasttime = #{datlasttime,jdbcType=TIMESTAMP},
+      datupdate = #{datupdate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <sql id="MysqlDialectSuffix" >
+    <if test="page != null" >
+      <![CDATA[  limit #{page.begin} , #{page.end} ]]>
+    </if>
+  </sql>
+</mapper>

@@ -62,4 +62,16 @@ public class CmsUser {
     public void setDatupdate(Date datupdate) {
         this.datupdate = datupdate;
     }
+
+    @Override
+    public String toString() {
+        return "CmsUser{" +
+                "id=" + id +
+                ", vcloginname='" + vcloginname + '\'' +
+                ", vcloginpwd='" + vcloginpwd + '\'' +
+                ", datcreate=" + datcreate +
+                ", datlasttime=" + datlasttime +
+                ", datupdate=" + datupdate +
+                '}';
+    }
 }
