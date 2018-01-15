@@ -68,7 +68,6 @@
             <artifactId>spring-jdbc</artifactId>
             <version>4.3.11.RELEASE</version>
         </dependency>
-
         <!-- 单元测 jar-->
         <dependency>
             <groupId>org.springframework</groupId>

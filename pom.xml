@@ -10,11 +10,11 @@
   <url>http://maven.apache.org</url>
 
   <modules>
-    <module>liuxn-web</module>
-    <module>liuxn-service</module>
-    <module>liuxn-persist</module>
     <module>liuxn-model</module>
     <module>liuxn-utils</module>
+    <module>liuxn-persist</module>
+    <module>liuxn-service</module>
+    <module>liuxn-web</module>
   </modules>
 
 

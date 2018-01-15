@@ -29,13 +29,10 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <ref bean="jsonHttpMessageConverter"/>
                 <ref bean="stringHttpMessageConverter"/>
-
             </list>
         </property>
     </bean>
-
     <bean id="jsonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
