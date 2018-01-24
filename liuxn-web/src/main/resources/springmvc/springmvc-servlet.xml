@@ -21,7 +21,7 @@
 
     <!-- 2.内部资源视图解析器  -->
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/view"/>
+        <property name="prefix" value="/WEB-INF/view/"/>
         <property name="suffix" value=".html"/>
     </bean>
     <!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
@@ -33,16 +33,7 @@
             </list>
         </property>
     </bean>
-    <bean id="jsonHttpMessageConverter"
-          class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-        <property name="supportedMediaTypes">
-            <list>
-                <value>text/html;charset=UTF-8</value>
-                <value>application/json;charset=UTF-8</value>
-            </list>
-        </property>
 
-    </bean>
     <bean id="stringHttpMessageConverter" class="org.springframework.http.converter.StringHttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>

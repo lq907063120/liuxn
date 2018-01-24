@@ -23,6 +23,15 @@
         <servlet-name>springDispatcherServlet</servlet-name>
         <url-pattern>*.do</url-pattern>
     </servlet-mapping>
+    <!-- 加载logback.xml -->
+    <context-param>
+        <param-name>logbackConfigLocation</param-name>
+        <param-value>classpath:env/logback.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>ch.qos.logback.ext.spring.web.LogbackConfigListener</listener-class>
+    </listener>
+
     <!-- 统一字符编码为UTF-8 -->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>

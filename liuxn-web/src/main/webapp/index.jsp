@@ -1,5 +1,4 @@
 <html>
-<body>
-<h2>Hello World!</h2>
+<body onload="javascript:window.location.href = 'mian/tologin.do';">
 </body>
 </html>
