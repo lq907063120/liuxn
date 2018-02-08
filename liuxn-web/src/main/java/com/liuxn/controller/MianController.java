@@ -17,7 +17,7 @@ import org.slf4j.LoggerFactory;
 @Controller
 @RequestMapping("/mian")
 public class MianController {
-    private Logger log = LoggerFactory.getLogger(this.getClass());
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 
 

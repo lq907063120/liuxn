@@ -13,9 +13,16 @@ public class TestLogger {
 
 
     public static void main(String[] args) {
+        long start = System.currentTimeMillis();
+        Thread thread = Thread.currentThread();
+        String threadname = thread.getName();
+        System.out.println(threadname);
         //获取当前类全限定名
         String name = logger.getName();
         System.out.println(name);
+        long end = System.currentTimeMillis();
+        System.out.println(start - end);
+
 
     }
 }
