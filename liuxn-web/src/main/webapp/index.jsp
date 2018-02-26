@@ -1,4 +1,4 @@
 <html>
-<body onload="javascript:window.location.href = 'mian/tologin.do';">
+<body onload="javascript:window.location.href = 'main/tologin.do';">
 </body>
 </html>
