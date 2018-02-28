@@ -2,6 +2,7 @@ package com.liuxn.controller;
 
 import com.liuxn.controller.base.BaseController;
 import com.liuxn.entity.vo.model.Result;
+import net.sf.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,6 @@ public class MianController extends BaseController {
         Result result = new Result();
         result.setMsg("登陆成功");
         result.setCode("ok");
-//        JSONObject
         this.writeApplicationJson(response,"");
     }
 }

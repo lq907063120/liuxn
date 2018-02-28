@@ -3,9 +3,12 @@ package com.liuxn.entity.vo.model;
 /**
  * 此类用于基础返回html数据
  */
-public class Result {
+public class Result<T> {
     private String code;
     private String msg;
+
+    private T data;
+
 
     public Result() {
     }
